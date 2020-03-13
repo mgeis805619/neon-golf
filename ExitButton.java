@@ -23,10 +23,10 @@ public class ExitButton {
     private ImageIcon ii;
     
      public ExitButton (int cWidth, int cHeight) {
-        x = 30;
-        y = 500;
-        this.height = 300;
-        this.width = 350;
+        x = 800;
+        y = 310;
+        this.height = 270;
+        this.width = 200;
         this. ii = new ImageIcon(getClass().getResource("NeonExitButton.png"));
         this.img = ii.getImage();
      }

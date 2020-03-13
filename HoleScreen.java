@@ -13,7 +13,8 @@ import javax.swing.ImageIcon;
  *
  * @author 805619
  */
-public class BackButton {
+public class HoleScreen {
+    
     private int height;
     private int width;
     private int x;
@@ -21,16 +22,18 @@ public class BackButton {
     private Image img;
     private ImageIcon ii;
     
-     public BackButton (int cWidth, int cHeight) {
-        x = 30;
-        y = 30;
-        this.height = 30;
-        this.width = 30;
-        this. ii = new ImageIcon(getClass().getResource("NeonBackButton2.png"));
+     public HoleScreen (int cWidth, int cHeight) {
+        x = 0;
+        y = 0;
+        this.height = cHeight;
+        this.width = cWidth;
+        this. ii = new ImageIcon(getClass().getResource("HoleScreen.png"));
         this.img = ii.getImage();
      }
      
      public void draw(Graphics g) {
            g.drawImage(img, this.x, this.y, this.width, this.height, null);
        }
+    
+    
 }

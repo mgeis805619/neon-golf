@@ -25,7 +25,7 @@ public class PlayerSelectScreen {
      public PlayerSelectScreen (int cWidth, int cHeight) {
         x = 0;
         y = 0;
-        this.height = cHeight;
+        this.height = cHeight -= 50;
         this.width = cWidth;
         this. ii = new ImageIcon(getClass().getResource("PlayerSelectScreen.png"));
         this.img = ii.getImage();

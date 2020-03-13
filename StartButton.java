@@ -23,11 +23,11 @@ public class StartButton {
     private ImageIcon ii;
     
      public StartButton (int cWidth, int cHeight) {
-        x = 50;
-        y = 250;
+        x = 300;
+        y = 300;
         this.height = 300;
-        this.width = 300;
-        this. ii = new ImageIcon(getClass().getResource("NeonStartButton2.png"));
+        this.width = 350;
+        this.ii = new ImageIcon(getClass().getResource("NeonStartButton2.png"));
         this.img = ii.getImage();
      }
      

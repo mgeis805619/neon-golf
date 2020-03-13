@@ -29,11 +29,16 @@ public class World extends JPanel {
     private BlueSelectButton blueselectbutton;
     private OrangeSelectButton orangeselectbutton;
     private PlayerSelectScreen playerselectscreen;
-    private Player player;
+    private HoleScreen holeScreen;
+    private OrangeBall orangeBall;
+    private BlueBall blueBall;
     private int width = 1440;
     private int height = 900;
     private boolean main = true;
     private boolean select = false;
+    private boolean hole = false;
+    private boolean winScreen = false;
+    private boolean colorBlue = true;
     
     
     public World() {
@@ -46,7 +51,10 @@ public class World extends JPanel {
         backButton = new BackButton (800,600);
         blueselectbutton = new BlueSelectButton (800,600);
         orangeselectbutton = new OrangeSelectButton(800,600);
+        orangeBall = new OrangeBall (800,600);
+        blueBall = new BlueBall (800,600);
         playerselectscreen = new PlayerSelectScreen(width,height);
+        holeScreen = new HoleScreen(width,height);
     }
     
     @Override
@@ -57,13 +65,23 @@ public class World extends JPanel {
             exitButton.draw(g);
         }
         else if (main == false && select == true){
-            backButton.draw(g);
+            playerselectscreen.draw(g);
             blueselectbutton.draw(g);
-            orangeselectbutton.draw(g);
-            playerselectscreen.draw(g); 
+            orangeselectbutton.draw(g); 
+            backButton.draw(g);
+        }
+        else if (hole == true && main == false && select == false) {
+            holeScreen.draw(g);
+            backButton.draw(g);
+            if (colorBlue == true) {
+                blueBall.draw(g);
+            }
+            else if (colorBlue == false) {
+                orangeBall.draw(g);
+            }
         }
         else {
-            backButton.draw(g);
+        
         }
     }
     
@@ -75,34 +93,41 @@ public class World extends JPanel {
     
     void mousePressed(MouseEvent e) {
         if (main == true) {
-            if ( e.getX() > 50 && e.getX() < 350 && e.getY() > 250 && e.getY() < 550) {
+            if ( e.getX() > 300 && e.getX() < 600 && e.getY() > 300 && e.getY() < 650) {
             main = false;
             select = true;
             }
-            else if ( e.getX() > 30 && e.getX() < 330 && e.getY() > 500 && e.getY() < 850) {
+            else if ( e.getX() > 800 && e.getX() < 1070 && e.getY() > 310 && e.getY() < 510) {
             System.exit(0);    
             }
-            
-            else if (main == false && select == true){
-                if ( e.getX() > 50 && e.getX() < 350 && e.getY() > 250 && e.getY() < 550) {
-            main = false;
-            select = true;
+        }
+        else if (main == false && select == true){ 
+                if ( e.getX() > 300 && e.getX() < 600 && e.getY() > 350 && e.getY() < 650) {
+            colorBlue = true;
+            select = false;
+            hole = true;
             }
-            else if ( e.getX() > 30 && e.getX() < 330 && e.getY() > 500 && e.getY() < 850) {
-            System.exit(0);    
-            }
-            else if ( e.getX() > 30 && e.getX() < 330 && e.getY() > 500 && e.getY() < 850) {
+            else if ( e.getX() > 0 && e.getX() < 80 && e.getY() > 0 && e.getY() < 80) {
                 select = false;
                 main = true;
             }    
+            else if ( e.getX() > 850 && e.getX() < 1150 && e.getY() > 350 && e.getY() < 650) {
+            colorBlue = false;
+            select = false;
+            hole = true;
             }
-            else {
-            if ( e.getX() > 50 && e.getX() < 350 && e.getY() > 250 && e.getY() < 550) {
-            main = true;
             }
-            }
+        else if (hole == true && main == false && select == false){
+           if ( e.getX() > 0 && e.getX() < 80 && e.getY() > 0 && e.getY() < 80) {
+                select = true;
+                hole = false;
+            }  
         }
-    }
+        else {
+                
+        }
+        }
+    
     
     private class ScheduleTask extends TimerTask {
 

@@ -23,8 +23,8 @@ public class OrangeSelectButton {
     private ImageIcon ii;
     
      public OrangeSelectButton (int cWidth, int cHeight) {
-        x = 50;
-        y = 250;
+        x = 850;
+        y = 350;
         this.height = 300;
         this.width = 300;
         this. ii = new ImageIcon(getClass().getResource("OrangeBallSelectButton.png"));

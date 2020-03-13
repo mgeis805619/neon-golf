@@ -23,11 +23,11 @@ public class BlueSelectButton {
     private ImageIcon ii;
     
      public BlueSelectButton (int cWidth, int cHeight) {
-        x = 50;
-        y = 250;
+        x = 300;
+        y = 350;
         this.height = 300;
         this.width = 300;
-        this. ii = new ImageIcon(getClass().getResource("BlueBallSelectScreen.png"));
+        this. ii = new ImageIcon(getClass().getResource("BlueBallSelectButton.png"));
         this.img = ii.getImage();
      }
      
